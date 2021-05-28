@@ -20,8 +20,11 @@ RUN pip3 install --no-cache --upgrade pip setuptools
 COPY requirements.txt /requirements.txt
 RUN pip3 install -r requirements.txt
 
+# Creating new work directory
+RUN mkdir /home/my_website
+
 # Copy Django Project
-COPY resources/conf/mime.types /etc/nginx/mime.types
+COPY django_backend /home/my_website/django_backend
 
 EXPOSE 80
 EXPOSE 443
